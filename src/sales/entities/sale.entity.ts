@@ -11,6 +11,6 @@ export class Sale {
   @Column({ name: 'forecasted_sales_quantity' })
   forecastedSalesQty: number;
 
-  @Column()
+  @Column({ type: 'date' })
   date: Date;
 }
