@@ -76,8 +76,6 @@ export class AlertsService {
         } else if (closedStoreSeq >= 3) {
           closedStoreSeq = 0;
         }
-
-        console.log(lowSaleSeq, closedStoreSeq);
       }
     });
 
