@@ -1,12 +1,9 @@
-import { Type } from 'class-transformer';
-import { IsDate } from 'class-validator';
+import { IsDateString } from 'class-validator';
 
 export class GetSalesForecastQuery {
-  @IsDate()
-  @Type(() => Date)
-  fromDate: Date;
+  @IsDateString()
+  fromDate: string;
 
-  @IsDate()
-  @Type(() => Date)
-  toDate: Date;
+  @IsDateString()
+  toDate: string;
 }

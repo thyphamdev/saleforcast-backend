@@ -3,6 +3,7 @@ import { SalesModule } from './sales/sales.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Sale } from './sales/entities/sale.entity';
+import { WheatherModule } from './wheather/wheather.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { Sale } from './sales/entities/sale.entity';
       inject: [ConfigService],
     }),
     SalesModule,
+    WheatherModule,
   ],
   controllers: [],
   providers: [],

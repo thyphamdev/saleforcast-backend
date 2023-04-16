@@ -12,5 +12,5 @@ export class Sale {
   forecastedSalesQty: number;
 
   @Column({ type: 'date' })
-  date: Date;
+  date: string;
 }

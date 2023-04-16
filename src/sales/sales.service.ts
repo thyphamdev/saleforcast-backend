@@ -10,7 +10,7 @@ export class SalesService {
     private usersRepository: Repository<Sale>,
   ) {}
 
-  findByDate(fromDate: Date, toDate: Date) {
+  findByDate(fromDate: string, toDate: string) {
     return this.usersRepository.find({
       where: {
         date: Between(fromDate, toDate),
