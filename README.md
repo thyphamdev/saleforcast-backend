@@ -103,7 +103,7 @@ $ npm install
 
 ```bash
 # development
-$ POSTGRES_PASSWORD="postgres Password" WHEATHER_SERVICE_API_KEY="api key of the wheater api" npm run start:dev npm run start
+$ POSTGRES_PASSWORD="postgres Password" WHEATHER_SERVICE_API_KEY="api key of the wheater api" npm run start
 ```
 
 The app will run at port 3001.
