@@ -7,5 +7,6 @@ import { ConfigModule } from '@nestjs/config';
   imports: [ConfigModule],
   controllers: [WheatherController],
   providers: [WheatherService],
+  exports: [WheatherService],
 })
 export class WheatherModule {}

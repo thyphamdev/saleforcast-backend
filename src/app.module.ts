@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Sale } from './sales/entities/sale.entity';
 import { WheatherModule } from './wheather/wheather.module';
+import { AlertsModule } from './alerts/alerts.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { WheatherModule } from './wheather/wheather.module';
     }),
     SalesModule,
     WheatherModule,
+    AlertsModule,
   ],
   controllers: [],
   providers: [],

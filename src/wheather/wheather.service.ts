@@ -1,11 +1,20 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
+export interface WheatherForecastResult {
+  date: string;
+  temperature: number;
+}
+
 @Injectable()
 export class WheatherService {
   constructor(private configService: ConfigService) {}
 
-  async getWheatherForecast(fromDate: string, toDate: string, city: string) {
+  async getWheatherForecast(
+    fromDate: string,
+    toDate: string,
+    city: string,
+  ): Promise<WheatherForecastResult[]> {
     const apiKey = this.configService.get<string>('WHEATHER_SERVICE_API_KEY');
 
     const response = await fetch(

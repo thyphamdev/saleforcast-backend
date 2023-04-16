@@ -7,11 +7,13 @@ import { Between, Repository } from 'typeorm';
 export class SalesService {
   constructor(
     @InjectRepository(Sale)
-    private usersRepository: Repository<Sale>,
+    private salesRepository: Repository<Sale>,
   ) {}
 
-  findByDate(fromDate: string, toDate: string) {
-    return this.usersRepository.find({
+  async findByDate(fromDate: string, toDate: string) {
+    const salesForecastByCity: Record<string, Sale[]> = {};
+
+    const allSalesForecast = await this.salesRepository.find({
       where: {
         date: Between(fromDate, toDate),
       },
@@ -19,5 +21,13 @@ export class SalesService {
         date: 'desc',
       },
     });
+
+    allSalesForecast.map((saleFc) =>
+      salesForecastByCity[saleFc.location]
+        ? salesForecastByCity[saleFc.location].push(saleFc)
+        : (salesForecastByCity[saleFc.location] = [saleFc]),
+    );
+
+    return salesForecastByCity;
   }
 }
